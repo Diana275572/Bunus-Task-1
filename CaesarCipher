@@ -1,0 +1,15 @@
+public class CaesarCipher {
+    protected int shift;
+
+    public CaesarCipher(int shift) {
+        this.shift = shift % 26;
+    }
+
+    protected char shiftCharacter(char ch, int shiftAmount) {
+        if (Character.isLetter(ch)) {
+            char base = Character.isUpperCase(ch) ? 'A' : 'a';
+            return (char) ((ch - base + shiftAmount + 26) % 26 + base);
+        }
+        return ch;
+    }
+}
