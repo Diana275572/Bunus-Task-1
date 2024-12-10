@@ -1,0 +1,16 @@
+public class Decryptor extends CaesarCipher {
+
+    public Decryptor(int shift) {
+        super(shift);
+    }
+
+    public String decrypt(String text) {
+        StringBuilder decryptedText = new StringBuilder();
+
+        for (char ch : text.toCharArray()) {
+            decryptedText.append(shiftCharacter(ch, -shift));
+        }
+
+        return decryptedText.toString();
+    }
+}
