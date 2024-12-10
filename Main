@@ -1,0 +1,29 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the shift for the cipher (number): ");
+        int shift = scanner.nextInt();
+        scanner.nextLine();
+        System.out.println("Select action:");
+        System.out.println("1 - Encrypt text");
+        System.out.println("2 - Decipher the text");
+        System.out.print("Your choice ");
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.print("Enter text: ");
+        String inputText = scanner.nextLine();
+
+        if (choice == 1) {
+            Encryptor encryptor = new Encryptor(shift);
+            String encryptedText = encryptor.encrypt(inputText);
+            System.out.println("Encrypted text: " + encryptedText);
+        } else if (choice == 2) {
+            Decryptor decryptor = new Decryptor(shift);
+            String decryptedText = decryptor.decrypt(inputText);
+            System.out.println("Decrypted text:" + decryptedText);
+        }
+    }
+}
